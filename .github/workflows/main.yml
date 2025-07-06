@@ -16,7 +16,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt  # يثبت المتطلبات
+          pip install -r rasa[FULL]  # يثبت المتطلبات
 
       - name: Train model
         run: |
