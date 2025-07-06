@@ -1,14 +1,11 @@
 action_endpoint:
-  url: "http://localhost:5055/webhook"  # نقطة النهاية لإجراءات Rasa
+  url: "http://0.0.0.0:5055/webhook"  # نقطة النهاية لإجراءات Rasa
 
 tracker_store:
-  type: sql
-  dialect: "mysql"                        # نوع قاعدة البيانات (MySQL)
-  url: "localhost"                     # عنوان خادم MySQL
-  port: 3306                             # المنفذ الافتراضي لـ MySQL
-  username: "root"                       # اسم المستخدم
-  password: ""                           # كلمة المرور (فارغة في هذه الحالة)
-  db: "sywa_bot"                         # اسم قاعدة البيانات
+  type: SQL
+  dialect: postgresql
+  url: postgresql://postgres:${DB_PASSWORD}@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres
+  db: postgres
 
 cors:
   - "*"                                  # السماح بجميع مصادر CORS للتطبيق

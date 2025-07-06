@@ -60,7 +60,7 @@ class City(Base):
     city_name = Column(String(255))
 
 # إعداد اتصال قاعدة البيانات
-DATABASE_URI = 'mysql+mysqlconnector://root:@localhost/sywa_bot'
+DATABASE_URI = 'postgresql+psycopg2://postgres:${DB_PASSWORD}@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres'
 engine = create_engine(DATABASE_URI)
 Session = sessionmaker(bind=engine)
 
