@@ -1,0 +1,23 @@
+name: Rasa CI
+
+on: [push]  # يُنفّذ عند أي push إلى المستودع
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # يستخدم خادم Ubuntu
+
+    steps:
+      - uses: actions/checkout@v2  # يحصل على الكود من المستودع
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'  # إصدار بايثون المتوافق مع Rasa
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # يثبت المتطلبات
+
+      - name: Train model
+        run: |
+          rasa train  # يدرب النموذج
