@@ -1,23 +1,24 @@
 name: Rasa CI
 
-on: [push]  # يُنفّذ عند أي push إلى المستودع
+on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # يستخدم خادم Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2  # يحصل على الكود من المستودع
+      - uses: actions/checkout@v2
 
-      - name: Install Python
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'  # إصدار بايثون المتوافق مع Rasa
+          python-version: '3.9'
 
-      - name: Install dependencies
+      - name: Install Rasa with full dependencies
         run: |
-          pip install -r rasa[FULL]  # يثبت المتطلبات
+          pip install "rasa[full]"
+          pip install psycopg2-binary  # إذا كنت تستخدم PostgreSQL مع Supabase
 
-      - name: Train model
+      - name: Train Rasa model
         run: |
-          rasa train  # يدرب النموذج
+          rasa train
