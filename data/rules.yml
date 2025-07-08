@@ -12,7 +12,2366 @@ rules:
   - intent: travel_tourism
   - action: utter_question_3_tourism
 
+- rule: Start Travel in
+  steps:
+  - intent: travel_in
+  - action: utter_ask_province
+
 - rule: Start Travel out
   steps:
   - intent: travel_out
   - action: utter_question_0_base
+
+- rule: Start Travel to arab
+  steps:
+  - intent: travel_arab
+  - action: utter_initial_question_arabic_out
+    
+- rule: Start Travel to foreign
+  steps:
+  - intent: travel_foreign
+  - action: utter_initial_question_foreign_out
+
+# مسار السياحة العربية
+###############################################
+# Coastal Cities Rules
+###############################################
+
+- rule: Coastal Cities
+  steps:
+  - intent: coastal_cities_out
+  - action: utter_coastal_q1_arabic_out
+
+- rule: Preferred Maritime Activities
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_1
+      - intent: travel_to_beirut_arab_1
+      - intent: travel_to_dubai_arab_2
+      - intent: travel_to_sharjah_arab_1
+      - intent: other_utter_coastal_q2_arabic_out
+  - action: utter_coastal_q2_arabic_out
+
+- rule: Preferred Coastal Climate
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_3
+      - intent: travel_to_beirut_arab_2
+      - intent: travel_to_salalah_arab_1
+      - intent: travel_to_doha_arab_1
+      - intent: other_utter_coastal_q3_arabic_out
+  - action: utter_coastal_q3_arabic_out
+
+- rule: Preferred Coastal Accommodation
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_4
+      - intent: travel_to_beirut_arab_3
+      - intent: travel_to_salalah_arab_2
+      - intent: travel_to_sharjah_arab_2
+      - intent: other_utter_coastal_q4_arabic_out
+  - action: utter_coastal_q4_arabic_out
+
+- rule: Preferred Beach Activities
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_5
+      - intent: travel_to_doha_arab_2
+      - intent: travel_to_sharjah_arab_3
+      - intent: travel_to_beirut_arab_4
+      - intent: other_utter_coastal_q5_arabic_out
+  - action: utter_coastal_q5_arabic_out
+
+- rule: Preferred Coastal Landscapes
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_6
+      - intent: travel_to_salalah_arab_3
+      - intent: travel_to_sharjah_arab_4
+      - intent: travel_to_beirut_arab_5
+      - intent: other_utter_coastal_q6_arabic_out
+  - action: utter_coastal_q6_arabic_out
+
+- rule: Preferred Cultural Experiences in Coastal Cities
+  steps:
+  - or:
+      - intent: travel_to_doha_arab_3
+      - intent: travel_to_sharjah_arab_5
+      - intent: travel_to_dubai_arab_7
+      - intent: travel_to_beirut_arab_6
+      - intent: other_utter_coastal_q7_arabic_out
+  - action: utter_coastal_q7_arabic_out
+
+- rule: What Attracts You to Coastal Areas
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_8
+      - intent: travel_to_salalah_arab_4
+      - intent: travel_to_beirut_arab_7
+      - intent: travel_to_sharjah_arab_6
+  - action: action_recommend_city
+
+###############################################
+# Historical Cities Rules
+###############################################
+
+- rule: Historical Cities
+  steps:
+  - intent: historical_cities_out
+  - action: utter_historical_q1_arabic_out
+
+- rule: Preferred Historical Era
+  steps:
+  - or:
+      - intent: travel_to_giza_arab_1
+      - intent: travel_to_makkah_arab_1
+      - intent: travel_to_marrakech_arab_1
+      - intent: travel_to_amman_arab_1
+      - intent: other_utter_historical_q2_arabic_out
+  - action: utter_historical_q2_arabic_out
+
+- rule: Preferred Historical Monuments
+  steps:
+  - or:
+      - intent: travel_to_giza_arab_2
+      - intent: travel_to_makkah_arab_2
+      - intent: travel_to_marrakech_arab_2
+      - intent: travel_to_amman_arab_2
+      - intent: other_utter_historical_q3_arabic_out
+  - action: utter_historical_q3_arabic_out
+
+- rule: What Attracts You to Historical Cities
+  steps:
+  - or:
+      - intent: travel_to_giza_arab_3
+      - intent: travel_to_marrakech_arab_3
+      - intent: travel_to_makkah_arab_3
+      - intent: travel_to_amman_arab_3
+      - intent: other_utter_historical_q4_arabic_out
+  - action: utter_historical_q4_arabic_out
+
+- rule: Preferred Cultural Experiences in Historical Cities
+  steps:
+  - or:
+      - intent: travel_to_marrakech_arab_4
+      - intent: travel_to_giza_arab_4
+      - intent: travel_to_amman_arab_4
+      - intent: travel_to_marrakech_arab_5
+      - intent: other_utter_historical_q5_arabic_out
+  - action: utter_historical_q5_arabic_out
+
+- rule: Preferred Accommodation in Historical Cities
+  steps:
+  - or:
+      - intent: travel_to_marrakech_arab_6
+      - intent: travel_to_giza_arab_5
+      - intent: travel_to_marrakech_arab_7
+      - intent: travel_to_amman_arab_5
+      - intent: other_utter_historical_q6_arabic_out
+  - action: utter_historical_q6_arabic_out
+
+- rule: Preferred Cuisine in Historical Cities
+  steps:
+  - or:
+      - intent: travel_to_marrakech_arab_8
+      - intent: travel_to_amman_arab_6
+      - intent: travel_to_giza_arab_6
+      - intent: travel_to_amman_arab_7
+      - intent: other_utter_historical_q7_arabic_out
+  - action: utter_historical_q7_arabic_out
+
+- rule: Preferred Way to Explore Historical Cities
+  steps:
+  - or:
+      - intent: travel_to_giza_arab_7
+      - intent: travel_to_amman_arab_8
+      - intent: travel_to_giza_arab_8
+      - intent: travel_to_amman_arab_9
+  - action: action_recommend_city
+
+###############################################
+# Nature Cities Rules
+###############################################
+
+- rule: Nature Cities
+  steps:
+  - intent: nature_cities_out
+  - action: utter_nature_q1_arabic_out
+
+- rule: Preferred Natural Landscapes
+  steps:
+  - or:
+      - intent: travel_to_salalah_arab_5
+      - intent: travel_to_salalah_arab_6
+      - intent: travel_to_riyadh_arab_1
+      - intent: travel_to_marrakech_arab_9
+      - intent: other_utter_nature_q2_arabic_out
+  - action: utter_nature_q2_arabic_out
+
+- rule: Preferred Outdoor Activities
+  steps:
+  - or:
+      - intent: travel_to_salalah_arab_7
+      - intent: travel_to_riyadh_arab_2
+      - intent: travel_to_dubai_arab_9
+      - intent: travel_to_salalah_arab_8
+      - intent: other_utter_nature_q3_arabic_out
+  - action: utter_nature_q3_arabic_out
+
+- rule: Preferred Natural Climate
+  steps:
+  - or:
+      - intent: travel_to_marrakech_arab_10
+      - intent: travel_to_salalah_arab_9
+      - intent: travel_to_riyadh_arab_3
+      - intent: travel_to_beirut_arab_8
+      - intent: other_utter_nature_q4_arabic_out
+  - action: utter_nature_q4_arabic_out
+
+- rule: Preferred Accommodation in Natural Areas
+  steps:
+  - or:
+      - intent: travel_to_salalah_arab_10
+      - intent: travel_to_riyadh_arab_4
+      - intent: travel_to_marrakech_arab_11
+      - intent: travel_to_amman_arab_10
+      - intent: other_utter_nature_q5_arabic_out
+  - action: utter_nature_q5_arabic_out
+
+- rule: Preferred Wildlife to See
+  steps:
+  - or:
+      - intent: travel_to_sharjah_arab_7
+      - intent: travel_to_riyadh_arab_5
+      - intent: travel_to_salalah_arab_11
+      - intent: travel_to_dubai_arab_10
+      - intent: other_utter_nature_q6_arabic_out
+  - action: utter_nature_q6_arabic_out
+
+- rule: Preferred Water Activities in Nature
+  steps:
+  - or:
+      - intent: travel_to_salalah_arab_12
+      - intent: travel_to_beirut_arab_9
+      - intent: travel_to_dubai_arab_11
+      - intent: travel_to_sharjah_arab_8
+      - intent: other_utter_nature_q7_arabic_out
+  - action: utter_nature_q7_arabic_out
+
+- rule: What You Seek in Nature Trips
+  steps:
+  - or:
+      - intent: travel_to_salalah_arab_13
+      - intent: travel_to_riyadh_arab_6
+      - intent: travel_to_marrakech_arab_12
+      - intent: travel_to_riyadh_arab_7
+  - action: action_recommend_city
+
+###############################################
+# Commercial Cities Rules
+###############################################
+
+- rule: Commercial Cities
+  steps:
+  - intent: commercial_cities_out
+  - action: utter_commercial_q1_arabic_out
+
+- rule: Preferred Shopping Experience
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_12
+      - intent: travel_to_marrakech_arab_13
+      - intent: travel_to_riyadh_arab_8
+      - intent: travel_to_beirut_arab_10
+      - intent: other_utter_commercial_q2_arabic_out
+  - action: utter_commercial_q2_arabic_out
+
+- rule: Preferred Restaurants
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_13
+      - intent: travel_to_beirut_arab_11
+      - intent: travel_to_doha_arab_4
+      - intent: travel_to_riyadh_arab_9
+      - intent: other_utter_commercial_q3_arabic_out
+  - action: utter_commercial_q3_arabic_out
+
+- rule: Preferred Nightlife
+  steps:
+  - or:
+      - intent: travel_to_amman_arab_11
+      - intent: travel_to_dubai_arab_14
+      - intent: travel_to_riyadh_arab_10
+      - intent: travel_to_sharjah_arab_9
+      - intent: other_utter_commercial_q4_arabic_out
+  - action: utter_commercial_q4_arabic_out
+
+- rule: Preferred Accommodation in Commercial Cities
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_15
+      - intent: travel_to_doha_arab_5
+      - intent: travel_to_riyadh_arab_11
+      - intent: travel_to_beirut_arab_12
+      - intent: other_utter_commercial_q5_arabic_out
+  - action: utter_commercial_q5_arabic_out
+
+- rule: Preferred Transportation in Cities
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_16
+      - intent: travel_to_riyadh_arab_12
+      - intent: travel_to_beirut_arab_13
+      - intent: travel_to_doha_arab_6
+      - intent: other_utter_commercial_q6_arabic_out
+  - action: utter_commercial_q6_arabic_out
+
+- rule: Preferred Events to Attend
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_17
+      - intent: travel_to_sharjah_arab_10
+      - intent: travel_to_riyadh_arab_13
+      - intent: other_utter_commercial_q7_arabic_out
+  - action: utter_commercial_q7_arabic_out
+
+- rule: What Attracts You to Commercial Cities
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_19
+      - intent: travel_to_beirut_arab_14
+      - intent: travel_to_riyadh_arab_14
+      - intent: travel_to_doha_arab_7
+  - action: action_recommend_city
+
+###############################################
+# Unique Landmark Cities Rules
+###############################################
+
+- rule: Unique Landmark Cities
+  steps:
+  - intent: unique_cities_out
+  - action: utter_unique_q1_arabic_out
+
+- rule: Preferred Tourist Attractions
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_20
+      - intent: travel_to_giza_arab_9
+      - intent: travel_to_makkah_arab_4
+      - intent: travel_to_doha_arab_8
+      - intent: other_utter_unique_q2_arabic_out
+  - action: utter_unique_q2_arabic_out
+
+- rule: Preferred Unique Experiences
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_21
+      - intent: travel_to_marrakech_arab_14
+      - intent: travel_to_giza_arab_10
+      - intent: travel_to_makkah_arab_5
+      - intent: other_utter_unique_q3_arabic_out
+  - action: utter_unique_q3_arabic_out
+
+- rule: What Makes a Trip Memorable
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_22
+      - intent: travel_to_giza_arab_11
+      - intent: travel_to_makkah_arab_6
+      - intent: travel_to_dubai_arab_23
+      - intent: other_utter_unique_q4_arabic_out
+  - action: utter_unique_q4_arabic_out
+
+- rule: Preferred Souvenir Photos
+  steps:
+  - or:
+      - intent: travel_to_dubai_arab_24
+      - intent: travel_to_giza_arab_12
+      - intent: travel_to_salalah_arab_14
+      - intent: travel_to_makkah_arab_7
+      - intent: other_utter_unique_q5_arabic_out
+  - action: utter_unique_q5_arabic_out
+
+- rule: Preferred Unique Food
+  steps:
+  - or:
+      - intent: travel_to_marrakech_arab_15
+      - intent: travel_to_dubai_arab_25
+      - intent: travel_to_giza_arab_13
+      - intent: travel_to_doha_arab_9
+      - intent: other_utter_unique_q6_arabic_out
+  - action: utter_unique_q6_arabic_out
+
+- rule: What You Look for in a Local Guide
+  steps:
+  - or:
+      - intent: travel_to_giza_arab_14
+      - intent: travel_to_amman_arab_12
+      - intent: travel_to_dubai_arab_26
+      - intent: travel_to_marrakech_arab_16
+      - intent: other_utter_unique_q7_arabic_out
+  - action: utter_unique_q7_arabic_out
+
+- rule: How You Prefer to Spend Time at Unique Landmarks
+  steps:
+  - or:
+      - intent: travel_to_giza_arab_15
+      - intent: travel_to_dubai_arab_27
+      - intent: travel_to_marrakech_arab_17
+      - intent: travel_to_amman_arab_13
+  - action: action_recommend_city
+
+# مسار السياحة الاجنبية 
+# Coastal Cities Rules
+
+- rule: Coastal Cities
+  steps:
+  - intent: coastal_cities_foreign_out
+  - action: utter_coastal_q1_foreign_out
+
+- rule: Preferred Coastal Atmosphere
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_5
+      - intent: travel_to_barcelona_foreign_3
+      - intent: travel_to_london_foreign_5
+      - intent: other_utter_coastal_q2_foreign_out
+  - action: utter_coastal_q2_foreign_out
+
+- rule: Favorite Seaside Activity
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_2
+      - intent: travel_to_amsterdam_foreign_2
+      - intent: travel_to_london_foreign_8
+      - intent: travel_to_barcelona_foreign_5
+      - intent: other_utter_coastal_q3_foreign_out
+  - action: utter_coastal_q3_foreign_out
+
+- rule: Evening Preferences in Coastal Cities
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_4
+      - intent: travel_to_barcelona_foreign_20
+      - intent: travel_to_amsterdam_foreign_4
+      - intent: other_utter_coastal_q4_foreign_out
+  - action: utter_coastal_q4_foreign_out
+
+- rule: Daytime Activities in Coastal Cities
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_9
+      - intent: travel_to_barcelona_foreign_13
+      - intent: other_utter_coastal_q5_foreign_out
+  - action: utter_coastal_q5_foreign_out
+
+- rule: Preferred Hotel Types in Coastal Cities
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_3
+      - intent: travel_to_barcelona_foreign_7
+      - intent: travel_to_amsterdam_foreign_6
+      - intent: other_utter_coastal_q6_foreign_out
+  - action: utter_coastal_q6_foreign_out
+
+- rule: What Attracts You Most to Coastal Cities
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_16
+      - intent: travel_to_barcelona_foreign_14
+      - intent: travel_to_amsterdam_foreign_8
+      - intent: other_utter_coastal_q7_foreign_out
+  - action: utter_coastal_q7_foreign_out
+
+- rule: Preferred Weather in Coastal Cities
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_8
+      - intent: travel_to_amsterdam_foreign_10
+      - intent: travel_to_barcelona_foreign_16
+  - action: action_recommend_city
+
+
+## Historical Cities Rules
+
+# Historical Cities Rules
+
+- rule: Historical Cities
+  steps:
+  - intent: historical_cities_foreign_out
+  - action: utter_historical_q1_foreign_out
+
+- rule: Explore Ancient Civilizations
+  steps:
+  - or:
+      - intent: travel_to_rome_foreign_2
+      - intent: travel_to_paris_foreign_1
+      - intent: travel_to_istanbul_foreign_15
+      - intent: travel_to_berlin_foreign_1
+      - intent: other_utter_historical_q2_foreign_out
+  - action: utter_historical_q2_foreign_out
+
+- rule: Preferred Museum Type
+  steps:
+  - or:
+      - intent: travel_to_rome_foreign_12
+      - intent: travel_to_paris_foreign_2
+      - intent: travel_to_istanbul_foreign_18
+      - intent: other_utter_historical_q3_foreign_out
+  - action: utter_historical_q3_foreign_out
+
+- rule: Interest in Local Traditional Food
+  steps:
+  - or:
+      - intent: travel_to_rome_foreign_19
+      - intent: travel_to_paris_foreign_6
+      - intent: travel_to_istanbul_foreign_12
+      - intent: travel_to_berlin_foreign_4
+      - intent: other_utter_historical_q4_foreign_out
+  - action: utter_historical_q4_foreign_out
+
+- rule: Preferred Activities in Old Cities
+  steps:
+  - or:
+      - intent: travel_to_paris_foreign_9
+      - intent: travel_to_berlin_foreign_12
+      - intent: travel_to_rome_foreign_6
+      - intent: travel_to_istanbul_foreign_11
+      - intent: other_utter_historical_q5_foreign_out
+  - action: utter_historical_q5_foreign_out
+
+- rule: Architectural Details That Attract You
+  steps:
+  - or:
+      - intent: travel_to_rome_foreign_10
+      - intent: travel_to_istanbul_foreign_14
+      - intent: travel_to_paris_foreign_10
+      - intent: travel_to_berlin_foreign_19
+      - intent: other_utter_historical_q6_foreign_out
+  - action: utter_historical_q6_foreign_out
+
+- rule: Cultural Events Preference
+  steps:
+  - or:
+      - intent: travel_to_paris_foreign_17
+      - intent: travel_to_istanbul_foreign_19
+      - intent: travel_to_london_foreign_18
+      - intent: travel_to_berlin_foreign_7
+      - intent: other_utter_historical_q7_foreign_out
+  - action: utter_historical_q7_foreign_out
+
+- rule: Stay in Historic Hotels
+  steps:
+  - or:
+      - intent: travel_to_paris_foreign_12
+      - intent: travel_to_istanbul_foreign_6
+      - intent: travel_to_berlin_foreign_9
+  - action: action_recommend_city
+
+## Nature Cities Rules
+
+# Nature Areas Rules
+
+- rule: Exploring Natural Places
+  steps:
+  - intent: nature_cities_foreign_out
+  - action: utter_nature_q1_foreign_out
+
+- rule: QUESTION 1
+  steps:
+  - or:
+      - intent: travel_to_tokyo_foreign_10
+      - intent: travel_to_madrid_foreign_17
+      - intent: travel_to_istanbul_foreign_13
+      - intent: other_utter_nature_q2_foreign_out
+  - action: utter_nature_q2_foreign_out
+
+- rule: Preferred Wildlife
+  steps:
+  - or:
+      - intent: travel_to_newyork_foreign_7
+      - intent: travel_to_istanbul_foreign_10
+      - intent: travel_to_amsterdam_foreign_11
+      - intent: other_utter_nature_q3_foreign_out
+  - action: utter_nature_q3_foreign_out
+
+- rule: Water vs Land Activities
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_7
+      - intent: travel_to_madrid_foreign_13
+      - intent: travel_to_tokyo_foreign_11
+      - intent: other_utter_nature_q4_foreign_out
+  - action: utter_nature_q4_foreign_out
+
+- rule: Isolated vs Popular Natural Spots
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_22
+      - intent: travel_to_madrid_foreign_4
+      - intent: travel_to_tokyo_foreign_14
+      - intent: other_utter_nature_q5_foreign_out
+  - action: utter_nature_q5_foreign_out
+
+- rule: Enjoying Natural Scenery
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_24
+      - intent: travel_to_madrid_foreign_5
+      - intent: travel_to_tokyo_foreign_18
+      - intent: other_utter_nature_q6_foreign_out
+  - action: utter_nature_q6_foreign_out
+
+- rule: Preferred Activity in Nature Reserves
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_27
+      - intent: travel_to_madrid_foreign_3
+      - intent: travel_to_tokyo_foreign_19
+      - intent: other_utter_nature_q7_foreign_out
+  - action: utter_nature_q7_foreign_out
+
+- rule: Preferred Weather in Nature Areas
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_21
+      - intent: travel_to_madrid_foreign_18
+      - intent: travel_to_tokyo_foreign_2
+  - action: action_recommend_city
+
+# Commercial Cities Rules
+
+- rule: Commercial Cities
+  steps:
+  - intent: commercial_cities_foreign_out
+  - action: utter_commerce_q1_foreign_out
+
+- rule: Shopping in Malls vs Markets
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_20
+      - intent: travel_to_newyork_foreign_13
+      - intent: travel_to_amsterdam_foreign_16
+      - intent: other_utter_commerce_q2_foreign_out
+  - action: utter_commerce_q2_foreign_out
+
+- rule: Luxury Malls vs Local Markets
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_17
+      - intent: travel_to_newyork_foreign_12
+      - intent: travel_to_tokyo_foreign_7
+      - intent: other_utter_commerce_q3_foreign_out
+  - action: utter_commerce_q3_foreign_out
+
+- rule: What Matters Most in Shopping Experience
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_26
+      - intent: travel_to_paris_foreign_11
+      - intent: travel_to_newyork_foreign_17
+      - intent: other_utter_commerce_q4_foreign_out
+  - action: utter_commerce_q4_foreign_out
+
+- rule: Souvenirs vs Local Products
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_25
+      - intent: travel_to_newyork_foreign_10
+      - intent: travel_to_amsterdam_foreign_14
+      - intent: other_utter_commerce_q5_foreign_out
+  - action: utter_commerce_q5_foreign_out
+
+- rule: Indoor vs Outdoor Shopping
+  steps:
+  - or:
+      - intent: travel_to_paris_foreign_15
+      - intent: travel_to_istanbul_foreign_1
+      - intent: travel_to_newyork_foreign_3
+      - intent: other_utter_commerce_q6_foreign_out
+  - action: utter_commerce_q6_foreign_out
+
+- rule: Seasonal Sales vs Festivals
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_23
+      - intent: travel_to_newyork_foreign_9
+      - intent: travel_to_paris_foreign_18
+      - intent: other_utter_commerce_q7_foreign_out
+  - action: utter_commerce_q7_foreign_out
+
+- rule: Shopping in Old vs New City
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_28
+      - intent: travel_to_newyork_foreign_11
+      - intent: travel_to_paris_foreign_20
+  - action: action_recommend_city
+## Unique Cities Rules
+# Unique Cities Rules
+
+- rule: Unique Landmarks
+  steps:
+  - intent: unique_cities_foreign_out
+  - action: utter_unique_q1_foreign_out
+
+- rule: Unique Attractions Preference
+  steps:
+  - or:
+      - intent: travel_to_newyork_foreign_45
+      - intent: travel_to_barcelona_foreign_30
+      - intent: travel_to_rome_foreign_35
+      - intent: travel_to_tokyo_foreign_40
+      - intent: other_utter_unique_q2_foreign_out
+  - action: utter_unique_q2_foreign_out
+
+- rule: Visit Unique Cultural Landmarks
+  steps:
+  - or:
+      - intent: travel_to_london_foreign_50
+      - intent: travel_to_amsterdam_foreign_55
+      - intent: travel_to_paris_foreign_60
+      - intent: travel_to_tokyo_foreign_65
+      - intent: other_utter_unique_q3_foreign_out
+  - action: utter_unique_q3_foreign_out
+
+- rule: Unique Cultural Experiences
+  steps:
+  - or:
+      - intent: travel_to_madrid_foreign_70
+      - intent: travel_to_berlin_foreign_75
+      - intent: travel_to_istanbul_foreign_80
+      - intent: travel_to_paris_foreign_85
+      - intent: other_utter_unique_q4_foreign_out
+  - action: utter_unique_q4_foreign_out
+
+- rule: Activities in Unique Places
+  steps:
+  - or:
+      - intent: travel_to_barcelona_foreign_90
+      - intent: travel_to_amsterdam_foreign_95
+      - intent: travel_to_newyork_foreign_100
+      - intent: travel_to_berlin_foreign_105
+      - intent: other_utter_unique_q5_foreign_out
+  - action: utter_unique_q5_foreign_out
+
+- rule: Stay Near Unique Landmarks
+  steps:
+  - or:
+      - intent: travel_to_london_foreign_110
+      - intent: travel_to_rome_foreign_115
+      - intent: travel_to_madrid_foreign_120
+      - intent: travel_to_tokyo_foreign_125
+      - intent: other_utter_unique_q6_foreign_out
+  - action: utter_unique_q6_foreign_out
+
+- rule: Unique Food Experience
+  steps:
+  - or:
+      - intent: travel_to_istanbul_foreign_130
+      - intent: travel_to_barcelona_foreign_135
+      - intent: travel_to_athens_foreign_140
+      - intent: travel_to_tokyo_foreign_145
+      - intent: other_utter_unique_q7_foreign_out
+  - action: utter_unique_q7_foreign_out
+
+- rule: Customized Tour with Unique Landmarks
+  steps:
+  - or:
+      - intent: travel_to_newyork_foreign_150
+      - intent: travel_to_rome_foreign_155
+      - intent: travel_to_barcelona_foreign_160
+      - intent: travel_to_tokyo_foreign_165
+  - action: action_recommend_city
+
+# توقع الاختصاص 
+- rule: work and study
+  steps:
+  - or:
+      - intent: travel_work
+      - intent: travel_study  # أو أي نية تبدأ بها المحادثة
+  - action: utter_question_study_work_1
+
+- rule: Handle language selection and ask about language level
+  steps:
+  - or:
+      - intent: english
+      - intent: french
+      - intent: germany
+      - intent: espanol
+      - intent: other
+  - action: utter_question_study_work_2
+
+- rule: Handle language level selection and ask about study/work field
+  steps:
+  - or:
+      - intent: language_excellent
+      - intent: language_good
+      - intent: language_itsokay
+      - intent: language_bad
+  - action: action_check_previous_intents
+
+- rule: technology
+  steps:
+  - intent: travel_to_london_technology
+  - action: utter_question_technology
+
+- rule: study to other
+  steps:
+  - intent: travel_other
+  - action: utter_question_other
+
+- rule: pharmacy
+  steps:
+  - intent: travel_to_berlin_medical
+  - action: utter_question_medical
+
+- rule: marketing
+  steps:
+  - intent: travel_to_dubai_business
+  - action: utter_question_business
+ 
+- rule: mechanical engineering
+  steps:
+  - intent: travel_to_tokyo_engineering
+  - action: utter_question_engineering
+
+- rule: hirule
+  steps:
+  - intent: travel_to_paris_humanities
+  - action: utter_question_humanities
+
+- rule: sustainable agriculture
+  steps:
+  - intent: travel_to_amsterdam_environmental
+  - action: utter_question_environmental
+
+# مسار الدراسة
+- rule: technology path
+  steps:
+  - or:
+      - intent: travel_to_tokyo_specialization_ai
+      - intent: travel_to_london_specialization_data_analysis
+      - intent: travel_to_berlin_specialization_cyber_security
+      - intent: travel_to_dubai_specialization_app_development
+  - action: utter_question_1_arabic_study
+
+- rule: humanities path
+  steps:
+  - or:
+      - intent: travel_to_rome_specialization_history
+      - intent: travel_to_paris_specialization_languages_literature
+      - intent: travel_to_istanbul_specialization_philosophy
+      - intent: travel_to_beirut_specialization_sociology
+  - action: utter_question_2_arabic_study
+
+- rule: environmental path
+  steps:
+  - or:
+      - intent: travel_to_amsterdam_specialization_sustainable_agriculture
+      - intent: travel_to_marrakech_specialization_ecology
+      - intent: travel_to_riyadh_specialization_natural_resources
+      - intent: travel_to_salalah_specialization_forestry
+  - action: utter_question_3_arabic_study
+
+- rule: tourism path
+  steps:
+  - intent: travel_to_dubai_specialization_tourism
+  - action: utter_question_4_arabic_study
+
+- rule: arts path
+  steps:
+  - intent: travel_to_paris_specialization_arts
+  - action: utter_question_5_arabic_study
+
+- rule: media communication path
+  steps:
+  - intent: travel_to_newyork_specialization_media_communication
+  - action: utter_question_10_arabic_study
+
+- rule: architecture path
+  steps:
+  - intent: travel_to_barcelona_specialization_architecture
+  - action: utter_question_12_arabic_study
+
+
+- rule: business path
+  steps:
+  - or:
+      - intent: travel_to_newyork_specialization_business_management
+      - intent: travel_to_dubai_specialization_marketing
+      - intent: travel_to_london_specialization_economics
+      - intent: travel_to_doha_specialization_e_commerce
+  - action: utter_question_15_arabic_study
+  
+- rule: law politics path
+  steps:
+  - intent: travel_to_london_specialization_law_politics
+  - action: utter_question_16_arabic_study
+
+- rule: tourism studing question 
+  steps:
+  - or:
+      - intent: specialization_other
+  - action: utter_question_1
+
+- rule: tourism studing question ai
+  steps:
+  - or:
+      - intent: travel_to_dubai_tech_arab_1
+      - intent: travel_to_berlin_tech_arab_2
+      - intent: travel_to_tokyo_tech_arab_3
+      - intent: travel_to_riyadh_tech_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question humanities
+  steps:
+  - or:
+      - intent: travel_to_salalah_humanities_arab_1
+      - intent: travel_to_marrakech_culture_arab_2
+      - intent: travel_to_rome_history_arab_3
+      - intent: travel_to_paris_philosophy_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question environmental
+  steps:
+  - or:
+      - intent: travel_to_salalah_environmental_arab_1
+      - intent: travel_to_giza_agriculture_arab_2
+      - intent: travel_to_amsterdam_sustainability_arab_3
+      - intent: travel_to_tokyo_green_tech_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question tourism
+  steps:
+  - or:
+      - intent: travel_to_marrakech_tourism_arab_1
+      - intent: travel_to_barcelona_hospitality_arab_2
+      - intent: travel_to_amsterdam_sustainability_arab_3
+      - intent: travel_to_paris_culinary_experiences_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question art
+  steps:
+  - or:
+      - intent: travel_to_rome_art_arab_1
+      - intent: travel_to_paris_fashion_arab_2
+      - intent: travel_to_barcelona_architecture_arab_3
+      - intent: travel_to_marrakech_design_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question media
+  steps:
+  - or:
+      - intent: travel_to_dubai_media_city_arab_1
+      - intent: travel_to_london_global_news_arab_2
+      - intent: travel_to_newyork_digital_media_arab_3
+      - intent: travel_to_berlin_creative_industries_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question engining
+  steps:
+  - or:
+      - intent: travel_to_barcelona_architecture_arab_1
+      - intent: travel_to_rome_classic_architecture_arab_2
+      - intent: travel_to_dubai_future_skyscrapers_arab_3
+      - intent: travel_to_marrakech_andalusian_design_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question police
+  steps:
+  - or:
+      - intent: travel_to_london_law_arab_1
+      - intent: travel_to_paris_legal_studies_arab_2
+      - intent: travel_to_newyork_criminal_justice_arab_3
+      - intent: travel_to_washington_international_law_arab_4
+  - action: utter_question_2
+
+- rule: tourism studing question business
+  steps:
+  - or:
+      - intent: travel_to_newyork_economics_arab_1
+      - intent: travel_to_london_finance_arab_2
+      - intent: travel_to_dubai_business_hub_arab_3
+      - intent: travel_to_singapore_trade_arab_4
+  - action: utter_question_2
+
+- rule: specialization education
+  steps:
+  - intent: travel_to_london_specialization_education
+  - action: utter_question_3
+
+- rule: specialization engineering
+  steps:
+  - or:
+      - intent: travel_to_istanbul_specialization_civil_engineering
+      - intent: travel_to_berlin_specialization_electrical_engineering
+      - intent: travel_to_tokyo_specialization_mechanical_engineering
+  - action: utter_question_4
+
+- rule: specialization medicine
+  steps:
+  - or:
+      - intent: travel_to_london_specialization_general_medicine
+      - intent: travel_to_amman_specialization_nursing
+      - intent: travel_to_riyadh_specialization_pharmacy
+      - intent: travel_to_beirut_specialization_nutrition
+  - action: utter_question_3
+
+# قصة مدينة دبي (Dubai)
+- rule: Travel to Dubai study
+  steps:
+  - intent: travel_to_dubai_tech_studyy
+  - action: utter_question_4
+- rule: Travel to Dubai study 1
+  steps:
+  - intent: travel_to_dubai_hot_climate_studyy
+  - action: utter_question_5
+- rule: Travel to Dubai study 2
+  steps:
+  - intent: travel_to_dubai_modern_accommodation_studyy
+  - action: utter_question_10
+
+# قصة مدينة مراكش (marrakech)
+- rule: Travel to marrakech study
+  steps:
+  - intent: travel_to_marrakech_culture_studyy
+  - action: utter_question_3
+- rule: Travel to marrakech study 1
+  steps:
+  - intent: travel_to_marrakech_festivals_studyy
+  - action: utter_question_5
+- rule: Travel to marrakech study 2
+  steps:
+  - intent: travel_to_marrakech_traditional_accommodation_studyy
+  - action: utter_question_6
+
+# قصة مدينة باريس (Paris)
+- rule: Travel to Paris study
+  steps:
+  - intent: travel_to_paris_philosophy_studyy
+  - action: utter_question_4
+- rule: Travel to Paris study 1
+  steps:
+  - intent: travel_to_paris_moderate_climate_studyy
+  - action: utter_question_6
+- rule: Travel to Paris study 2
+  steps:
+  - intent: travel_to_paris_luxury_food_studyy
+  - action: utter_question_8
+
+- rule: Travel to Paris study 2
+  steps:
+  - intent: travel_to_paris_modern_libraries_studyy
+  - action: utter_question_10
+
+# قصة مدينة صلالة (Salalah)
+- rule: Travel to Salalah study
+  steps:
+  - intent: travel_to_salalah_environmental_studyy
+  - action: utter_question_2
+- rule: Travel to Salalah study 1
+  steps:
+  - intent: travel_to_salalah_nature_studyy
+  - action: utter_question_9
+
+# قصة مدينة نيويورك (New York)
+- rule: Travel to New York study
+  steps:
+  - intent: travel_to_newyork_urban_studyy
+  - action: utter_question_7
+- rule: Travel to New York study 1
+  steps:
+  - intent: travel_to_newyork_high_cost_studyy
+  - action: utter_question_9
+
+# قصة مدينة أمستردام (Amsterdam)
+- rule: Travel to Amsterdam study
+  steps:
+  - intent: travel_to_amsterdam_mixed_studyy
+  - action: utter_question_5
+- rule: Travel to Amsterdam study 1
+  steps:
+  - intent: travel_to_amsterdam_suburban_accommodation_studyy
+  - action: utter_question_10
+
+# قصة مدينة برشلونة (Barcelona)
+- rule: Travel to Barcelona study
+  steps:
+  - intent: travel_to_barcelona_coastal_studyy
+  - action: utter_question_4
+- rule: Travel to Barcelona study 1
+  steps:
+  - intent: travel_to_barcelona_sunny_climate_studyy
+  - action: utter_question_6
+
+# قصة مدينة لندن (London)
+- rule: Travel to London study
+  steps:
+  - intent: travel_to_london_museums_studyy
+  - action: utter_question_6
+- rule: Travel to London study 1
+  steps:
+  - intent: travel_to_london_vegan_food_studyy
+  - action: utter_question_8
+
+# قصة مدينة طوكيو (Tokyo)
+- rule: Travel to Tokyo study
+  steps:
+  - intent: travel_to_tokyo_campus_accommodation_studyy
+  - action: utter_question_8
+
+# قصة مدينة برلين (Berlin)
+- rule: Travel to Berlin study
+  steps:
+  - intent: travel_to_berlin_cold_climate_studyy
+  - action: utter_question_8
+
+# قصة مدينة غير متوفرة (مثال: إسطنبول)
+- rule: travel to Istanbul study
+  steps:
+  - intent: travel_to_istanbul_markets_studyy
+  - action: utter_question_10
+
+- rule: Suggest a trip to city for study
+  steps:
+  - or:
+      - intent: travel_to_dubai_car_studyy
+      - intent: travel_to_marrakech_local_food_studyy
+      - intent: travel_to_paris_metro_studyy
+      - intent: travel_to_salalah_quiet_focus_studyy
+      - intent: travel_to_newyork_active_social_life_studyy
+      - intent: travel_to_amsterdam_bike_studyy
+      - intent: travel_to_barcelona_seafood_studyy
+      - intent: travel_to_london_world_class_uni_studyy
+      - intent: travel_to_tokyo_advanced_labs_studyy
+      - intent: travel_to_berlin_specialized_research_studyy
+      - intent: travel_to_amman_balanced_social_life_studyy
+      - intent: travel_to_riyadh_any_social_life_studyy
+      - intent: travel_to_beirut_low_cost_studyy
+      - intent: travel_to_rome_any_cost_studyy
+      - intent: travel_to_doha_medium_cost_studyy
+      - intent: travel_to_istanbul_ferry_studyy
+      - intent: travel_to_beirut_low_cost_studyy
+  - action: action_recommend_city
+ 
+# مسار العمل
+
+- rule: Type of nature of his work 1
+  steps:
+  - intent: travel_to_dubai_main
+  - action: utter_question_4_work_in_general
+- rule: Type of nature of his work 2
+  steps:  
+  - intent: travel_to_riyadh_main
+  - action: utter_question_32_work_in_general
+- rule: Type of nature of his work 3
+  steps:
+  - intent: travel_to_newyork_main
+  - action: utter_question_51_work_in_general
+- rule: Type of nature of his work 4
+  steps:  
+  - intent: travel_to_london_main 
+  - action: utter_question_64_work_in_general
+- rule: Type of nature of his work 5
+  steps:
+  - intent: travel_to_berlin_main 
+  - action: utter_question_77_work_in_general
+
+- rule: freelance work
+  steps:
+  - or:
+      - intent: travel_to_amsterdam_freelance_work
+      - intent: travel_to_paris_freelance_work
+      - intent: travel_to_marrakech_freelance_work
+      - intent: travel_to_dubai_freelance_work
+      - intent: travel_to_beirut_freelance_work
+      - intent: travel_to_sharjah_freelance_work
+      - intent: travel_to_istanbul_freelance_work
+  - action: utter_question_5_work_in_general
+
+- rule: The challenge that is currently driving him to rethink 0
+  steps:
+  - intent: travel_to_berlin_freelance_work_one_0
+  - action: utter_question_6_work_in_general
+- rule: The challenge that is currently driving him to rethink 1
+  steps:  
+  - intent: travel_to_dubai_freelance_work_two_0
+  - action: utter_question_10_work_in_general
+- rule: The challenge that is currently driving him to rethink 3
+  steps:
+  - intent: travel_to_newyork_freelance_work_three_0
+  - action: utter_question_13_work_in_general
+- rule: The challenge that is currently driving him to rethink 4
+  steps:
+  - intent: travel_to_paris_freelance_work_four_0
+  - action: utter_question_17_work_in_general
+- rule: The challenge that is currently driving him to rethink 5
+  steps:
+  - intent: travel_to_riyadh_freelance_work_five_0
+  - action: utter_question_22_work_in_general
+- rule: The challenge that is currently driving him to rethink 6
+  steps:
+  - intent: travel_to_barcelona_freelance_work_six_0
+  - action: utter_question_26_work_in_general
+
+- rule: Elements he lacks in his current environment
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_one_1
+      - intent: travel_to_tokyo_freelance_work_one_1
+      - intent: travel_to_berlin_freelance_work_one_2
+      - intent: travel_to_istanbul_freelance_work_one_1
+  - action: utter_question_7_work_in_general
+
+- rule: These scenes are closer to his creative energy
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_one_2
+      - intent: travel_to_berlin_freelance_work_one_3
+      - intent: travel_to_marrakech_freelance_work_one_1
+      - intent: travel_to_istanbul_freelance_work_one_2
+  - action: utter_question_8_work_in_general
+
+- rule: He puts his hand between two options
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_one_3
+      - intent: travel_to_istanbul_freelance_work_one_3
+  - action: utter_question_9_work_in_general
+
+- rule: More interchangeable for better opportunities
+  steps:
+  - or:
+      - intent: travel_to_berlin_freelance_work_one_4
+      - intent: travel_to_dubai_freelance_work_one_4
+      - intent: travel_to_tokyo_freelance_work_one_2
+      - intent: travel_to_istanbul_freelance_work_one_4
+  - action: action_recommend_city
+
+  #####
+
+- rule: The side he feels is the hardest to balance
+  steps:
+  - or:
+      - intent: travel_to_istanbul_freelance_work_two_1
+      - intent: travel_to_newyork_freelance_work_two_1
+      - intent: travel_to_paris_freelance_work_two_1
+      - intent: travel_to_berlin_freelance_work_two_1
+  - action: utter_question_11_work_in_general
+
+- rule: To approach the closest to his thinking to solve the equation
+  steps:
+  - or:
+      - intent: travel_to_paris_freelance_work_two_2
+      - intent: travel_to_newyork_freelance_work_two_2
+      - intent: travel_to_berlin_freelance_work_two_2
+      - intent: travel_to_istanbul_freelance_work_two_2
+  - action: utter_question_12_work_in_general
+
+- rule: Have a magic wand to change one factor in this equation.
+  steps:
+  - or:
+      - intent: travel_to_istanbul_freelance_work_two_3
+      - intent: travel_to_newyork_freelance_work_two_3
+      - intent: travel_to_paris_freelance_work_two_3
+      - intent: travel_to_berlin_freelance_work_two_3
+  - action: action_recommend_city
+
+###################
+
+- rule: Freelancers struggle with work-life balance
+  steps:
+  - or:
+      - intent: travel_to_tokyo_freelance_work_three_1
+      - intent: travel_to_london_freelance_work_three_1
+      - intent: travel_to_berlin_freelance_work_three_1
+      - intent: travel_to_amsterdam_freelance_work_three_1
+  - action:  utter_question_14_work_in_general
+
+- rule: When you think about your perfect day
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_three_1
+      - intent: travel_to_amsterdam_freelance_work_three_2
+      - intent: travel_to_berlin_freelance_work_three_2
+      - intent: travel_to_london_freelance_work_three_2
+  - action: utter_question_15_work_in_general
+
+- rule: The procedure he deems most feasible to implement
+  steps:
+  - or:
+      - intent: travel_to_tokyo_freelance_work_three_2
+      - intent: travel_to_amsterdam_freelance_work_three_3
+      - intent: travel_to_london_freelance_work_three_3
+      - intent: travel_to_dubai_freelance_work_three_2
+  - action: utter_question_16_work_in_general
+
+- rule: Factors that will help him more in achieving balance
+  steps:
+  - or:
+      - intent: travel_to_amsterdam_freelance_work_three_4
+      - intent: travel_to_berlin_freelance_work_three_3
+      - intent: travel_to_dubai_freelance_work_three_3
+      - intent: travel_to_tokyo_freelance_work_three_3
+  - action: action_recommend_city
+
+###############
+- rule: The most difficult aspect of defining his professional identity
+  steps:
+  - or:
+      - intent: travel_to_berlin_freelance_work_four_1
+      - intent: travel_to_newyork_freelance_work_four_1
+      - intent: travel_to_doha_freelance_work_four_1
+      - intent: travel_to_tokyo_freelance_work_four_1
+  - action: utter_question_18_work_in_general
+
+- rule: The differentiation strategy that he finds most suitable for him
+  steps:
+  - or:
+      - intent: travel_to_tokyo_freelance_work_four_2
+      - intent: travel_to_berlin_freelance_work_four_2
+      - intent: travel_to_doha_freelance_work_four_2
+      - intent: travel_to_newyork_freelance_work_four_2
+  - action: utter_question_19_work_in_general
+
+- rule: Phrases describing his relationship with his clients
+  steps:
+  - or:
+      - intent: travel_to_london_freelance_work_four_1
+      - intent: travel_to_newyork_freelance_work_four_3
+      - intent: travel_to_berlin_freelance_work_four_3
+      - intent: travel_to_tokyo_freelance_work_four_3
+  - action: utter_question_20_work_in_general
+
+- rule: Invests in its technical excellence
+  steps:
+  - or:
+      - intent: travel_to_tokyo_freelance_work_four_4
+      - intent: travel_to_berlin_freelance_work_four_4
+      - intent: travel_to_newyork_freelance_work_four_4
+      - intent: travel_to_doha_freelance_work_four_3
+  - action: utter_question_21_work_in_general
+
+- rule: Professional environments will help him flourish
+  steps:
+  - or:
+      - intent: travel_to_tokyo_freelance_work_four_5
+      - intent: travel_to_berlin_freelance_work_four_5
+      - intent: travel_to_london_freelance_work_four_2
+      - intent: travel_to_doha_freelance_work_four_4
+  - action: action_recommend_city
+
+######################################
+- rule: The biggest obstacle to its expansion currently
+  steps:
+  - or:
+      - intent: travel_to_riyadh_freelance_work_five_1
+      - intent: travel_to_newyork_freelance_work_five_1
+      - intent: travel_to_london_freelance_work_five_1
+      - intent: travel_to_dubai_freelance_work_five_1
+  - action: utter_question_23_work_in_general
+- rule: His current readiness
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_five_2
+      - intent: travel_to_newyork_freelance_work_five_2
+      - intent: travel_to_london_freelance_work_five_2
+      - intent: travel_to_amsterdam_freelance_work_five_1
+  - action: utter_question_24_work_in_general
+- rule: His preferred approach to finance
+  steps:
+  - or:
+      - intent: travel_to_riyadh_freelance_work_five_2
+      - intent: travel_to_london_freelance_work_five_3
+      - intent: travel_to_dubai_freelance_work_five_3
+      - intent: travel_to_amsterdam_freelance_work_five_2
+  - action: utter_question_25_work_in_general
+- rule: Environments suitable for the growth stage
+  steps:
+  - or:
+      - intent: travel_to_newyork_freelance_work_five_3
+      - intent: travel_to_dubai_freelance_work_five_4
+      - intent: travel_to_amsterdam_freelance_work_five_3
+      - intent: travel_to_riyadh_freelance_work_five_3
+  - action: action_recommend_city
+
+  ####################3
+- rule: who feels he is tapping into his creative energy lately
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_six_1
+      - intent: travel_to_berlin_freelance_work_six_1
+      - intent: travel_to_riyadh_freelance_work_six_1
+      - intent: travel_to_newyork_freelance_work_six_1
+  - action: utter_question_27_work_in_general
+- rule: A style that sees boredom seep into his passion
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_six_2
+      - intent: travel_to_riyadh_freelance_work_six_2
+      - intent: travel_to_newyork_freelance_work_six_2
+      - intent: travel_to_berlin_freelance_work_six_2
+  - action: utter_question_28_work_in_general
+- rule: Nutrients may rekindle its flame
+  steps:
+  - or:
+      - intent: travel_to_newyork_freelance_work_six_3
+      - intent: travel_to_berlin_freelance_work_six_3
+      - intent: travel_to_riyadh_freelance_work_six_3
+      - intent: travel_to_paris_freelance_work_six_1
+  - action: utter_question_29_work_in_general
+- rule: Climates may fuel his passion
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_six_3
+      - intent: travel_to_riyadh_freelance_work_six_4
+      - intent: travel_to_istanbul_freelance_work_six_1
+      - intent: travel_to_barcelona_freelance_work_six_1
+  - action: utter_question_30_work_in_general
+- rule: The cultural element that will release his latent energy
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_six_4
+      - intent: travel_to_riyadh_freelance_work_six_5
+      - intent: travel_to_newyork_freelance_work_six_4
+      - intent: travel_to_paris_freelance_work_six_2
+  - action: utter_question_31_work_in_general
+- rule: Personal Equations Save Your Passion From Fading
+  steps:
+  - or:
+      - intent: travel_to_dubai_freelance_work_six_5
+      - intent: travel_to_riyadh_freelance_work_six_6
+      - intent: travel_to_newyork_freelance_work_six_5
+      - intent: travel_to_paris_freelance_work_six_3
+  - action: action_recommend_city
+
+
+
+
+
+
+
+###############################################
+- rule: Phrases describe it more accurately 1
+  steps:
+  - intent: travel_to_newyork_work_one_0
+  - action: utter_question_33_work_in_general
+- rule: Phrases describe it more accurately 2
+  steps:
+  - intent: travel_to_dubai_work_two_0 
+  - action: utter_question_37_work_in_general
+- rule: Phrases describe it more accurately 3
+  steps:
+  - intent: travel_to_berlin_work_three_0
+  - action: utter_question_42_work_in_general
+- rule: Phrases describe it more accurately 4
+  steps:
+  - intent: travel_to_tokyo_work_four_0
+  - action: utter_question_46_work_in_general
+
+
+
+- rule: Leadership roles  
+  steps:
+  - or:
+      - intent: travel_to_paris_work_one_1
+      - intent: travel_to_dubai_work_one_1
+      - intent: travel_to_berlin_work_one_1
+      - intent: travel_to_newyork_work_one_1
+  - action: utter_question_34_work_in_general
+- rule: tangible value 
+  steps:
+  - or:
+      - intent: travel_to_riyadh_work_one_1
+      - intent: travel_to_dubai_work_one_2
+      - intent: travel_to_tokyo_work_one_1
+      - intent: travel_to_newyork_work_one_2
+  - action: utter_question_35_work_in_general
+- rule: Leadership roles  
+  steps:
+  - or:
+      - intent: travel_to_riyadh_work_one_2
+      - intent: travel_to_dubai_work_one_3 
+      - intent: travel_to_amsterdam_work_one_1
+      - intent: travel_to_tokyo_work_one_2 
+  - action: utter_question_36_work_in_general
+- rule: A leader who makes a difference in the future
+  steps:
+  - or:
+      - intent: travel_to_london_work_one_1
+      - intent: travel_to_berlin_work_one_2
+      - intent: travel_to_paris_work_one_2
+      - intent: travel_to_istanbul_work_one_1
+  - action: action_recommend_city
+
+- rule: Various skills
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_two_1
+      - intent: travel_to_dubai_work_two_1
+      - intent: travel_to_newyork_work_two_1
+      - intent: travel_to_berlin_work_two_1
+  - action: utter_question_38_work_in_general
+- rule: professional environment
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_two_2
+      - intent: travel_to_berlin_work_two_2
+      - intent: travel_to_paris_work_two_1
+      - intent: travel_to_london_work_two_1
+  - action: utter_question_39_work_in_general
+- rule: Main objective of diverse skills
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_two_3
+      - intent: travel_to_berlin_work_two_3
+      - intent: travel_to_london_work_two_2
+      - intent: travel_to_dubai_work_two_2
+  - action: utter_question_40_work_in_general
+- rule: The biggest challenge for diversity skills
+  steps:
+  - or:
+      - intent: travel_to_amsterdam_work_two_1
+      - intent: travel_to_paris_work_two_2
+      - intent: travel_to_tokyo_work_two_2
+      - intent: travel_to_berlin_work_two_4
+  - action: utter_question_41_work_in_general 
+- rule: Investing in diverse skills for the future
+  steps:
+  - or:
+      - intent: travel_to_paris_work_two_3
+      - intent: travel_to_berlin_work_two_5
+      - intent: travel_to_dubai_work_two_3
+      - intent: travel_to_london_work_two_3
+  - action: action_recommend_city
+
+- rule: Field experience
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_three_1
+      - intent: travel_to_dubai_work_three_1
+      - intent: travel_to_newyork_work_three_1
+      - intent: travel_to_london_work_three_1
+  - action: utter_question_43_work_in_general
+- rule: Exploiting a professional network
+  steps:
+  - or:
+      - intent: travel_to_dubai_work_three_2
+      - intent: travel_to_berlin_work_three_1
+      - intent: travel_to_london_work_three_2
+      - intent: travel_to_newyork_work_three_2
+  - action: utter_question_44_work_in_general
+- rule: Extensive field experience
+  steps:
+  - or:
+      - intent: travel_to_riyadh_work_three_1
+      - intent: travel_to_berlin_work_three_2
+      - intent: travel_to_tokyo_work_three_2
+      - intent: travel_to_newyork_work_three_3
+  - action: utter_question_45_work_in_general
+- rule: Investing in relationship expertise over the coming years
+  steps:
+  - or:
+      - intent: travel_to_berlin_work_three_3
+      - intent: travel_to_dubai_work_three_3
+      - intent: travel_to_london_work_three_3
+      - intent: travel_to_tokyo_work_three_3
+  - action: action_recommend_city
+
+- rule: Emerging fields
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_four_1
+      - intent: travel_to_newyork_work_four_1
+      - intent: travel_to_dubai_work_four_1
+      - intent: travel_to_berlin_work_four_1
+      - intent: travel_to_amsterdam_work_four_1
+  - action: utter_question_47_work_in_general
+- rule: The main motive behind the focus
+  steps:
+  - or:
+      - intent: travel_to_dubai_work_four_2
+      - intent: travel_to_newyork_work_four_2
+      - intent: travel_to_tokyo_work_four_2
+      - intent: travel_to_london_work_four_1
+  - action: utter_question_48_work_in_general
+- rule: Plan to apply what he learn
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_four_3
+      - intent: travel_to_berlin_work_four_2
+      - intent: travel_to_london_work_four_2
+      - intent: travel_to_dubai_work_four_3
+  - action: utter_question_49_work_in_general
+- rule: A journey of continuous development
+  steps:
+  - or:
+      - intent: travel_to_amsterdam_work_four_2
+      - intent: travel_to_paris_work_work_four_1
+      - intent: travel_to_berlin_work_four_3
+      - intent: travel_to_london_work_four_3
+  - action: utter_question_50_work_in_general
+- rule: Impact of skills over 5 years
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_four_3
+      - intent: travel_to_dubai_work_four_4
+      - intent: travel_to_tokyo_work_four_4
+      - intent: travel_to_berlin_work_four_4
+  - action: action_recommend_city
+
+###########################33
+- rule: He faces it in managing his business or company 1
+  steps:
+  - intent: travel_to_dubai_work_Employer_one_0
+  - action: utter_question_52_work_in_general
+- rule: He faces it in managing his business or company 2
+  steps:
+  - intent: travel_to_london_work_Employer_two_0
+  - action: utter_question_55_work_in_general
+- rule: He faces it in managing his business or company 3
+  steps:
+  - intent: travel_to_tokyo_work_Employer_three_0
+  - action: utter_question_58_work_in_general
+- rule: He faces it in managing his business or company 4
+  steps:
+  - intent: travel_to_newyork_work_Employer_four_0
+  - action: utter_question_61_work_in_general
+
+
+
+- rule: The biggest opportunity for expansion
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_Employer_one_1
+      - intent: travel_to_berlin_work_Employer_one_1
+      - intent: travel_to_dubai_work_Employer_one_1
+      - intent: travel_to_london_work_Employer_one_1
+  - action: utter_question_53_work_in_general
+- rule: hinders its expansion
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_Employer_one_2
+      - intent: travel_to_berlin_work_Employer_one_2
+      - intent: travel_to_london_work_Employer_one_2
+      - intent: travel_to_dubai_work_Employer_one_2
+  - action: utter_question_54_work_in_general
+- rule: Prefer to overcome the challenge to achieve expansion
+  steps:
+  - or:
+      - intent: travel_to_london_work_Employer_one_3
+      - intent: travel_to_tokyo_work_Employer_one_1
+      - intent: travel_to_dubai_work_Employer_one_3
+      - intent: travel_to_newyork_work_Employer_one_3
+  - action: action_recommend_city
+
+- rule: Team Management Challenge
+  steps:
+  - or:
+      - intent: travel_to_london_work_Employer_two_1
+      - intent: travel_to_newyork_work_Employer_two_1
+      - intent: travel_to_amsterdam_work_Employer_two_1
+      - intent: travel_to_dubai_work_Employer_two_1
+  - action: utter_question_56_work_in_general
+- rule: Improves team performance
+  steps:
+  - or:
+      - intent: travel_to_dubai_work_Employer_two_2
+      - intent: travel_to_tokyo_work_Employer_two_1
+      - intent: travel_to_amsterdam_work_Employer_two_2
+      - intent: travel_to_berlin_work_Employer_two_1
+  - action: utter_question_57_work_in_general
+- rule: Prefer to address challenges in the coming period
+  steps:
+  - or:
+      - intent: travel_to_london_work_Employer_two_2
+      - intent: travel_to_newyork_work_Employer_two_2
+      - intent: travel_to_tokyo_work_Employer_two_2
+      - intent: travel_to_berlin_work_Employer_two_2
+  - action: action_recommend_city
+
+- rule: operational weakness
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_Employer_three_1
+      - intent: travel_to_newyork_work_Employer_three_1
+      - intent: travel_to_london_work_Employer_three_1
+      - intent: travel_to_berlin_work_Employer_three_1
+  - action: utter_question_59_work_in_general
+- rule: Team Management Challenge
+  steps:
+  - or:
+      - intent: travel_to_london_work_Employer_three_2
+      - intent: travel_to_tokyo_work_Employer_three_2
+      - intent: travel_to_berlin_work_Employer_three_2
+      - intent: travel_to_newyork_work_Employer_three_2
+  - action: utter_question_60_work_in_general
+- rule: The solution to improve operational efficiency
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_Employer_three_3
+      - intent: travel_to_berlin_work_Employer_three_3
+      - intent: travel_to_london_work_Employer_three_3
+      - intent: travel_to_dubai_work_Employer_three_1
+  - action: action_recommend_city
+
+- rule: trademark
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_Employer_four_1
+      - intent: travel_to_london_work_Employer_four_1
+      - intent: travel_to_dubai_work_Employer_four_1
+      - intent: travel_to_berlin_work_Employer_four_1
+  - action: utter_question_62_work_in_general
+- rule: A brand you can benefit from
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_Employer_four_1
+      - intent: travel_to_berlin_work_Employer_four_2
+      - intent: travel_to_london_work_Employer_four_2
+      - intent: travel_to_dubai_work_Employer_four_2
+  - action: utter_question_63_work_in_general
+- rule: Strengthening the competitive position
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_Employer_four_2
+      - intent: travel_to_london_work_Employer_four_3
+      - intent: travel_to_dubai_work_Employer_four_3
+      - intent: travel_to_tokyo_work_Employer_four_2
+  - action: action_recommend_city
+
+- rule: The axis of his main strategy in the current year 1
+  steps:
+  - intent: travel_to_newyork_work_investment_one_0
+  - action: utter_question_65_work_in_general
+- rule: The axis of his main strategy in the current year 2
+  steps:
+  - intent: travel_to_dubai_work_investment_two_0
+  - action: utter_question_68_work_in_general
+- rule: The axis of his main strategy in the current year 3
+  steps:
+  - intent: travel_to_berlin_work_investment_three_0
+  - action: utter_question_71_work_in_general
+- rule: The axis of his main strategy in the current year 4
+  steps:
+  - intent: travel_to_tokyo_work_investment_four_0
+  - action: utter_question_74_work_in_general
+
+- rule: Technical analysis
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_investment_one_1
+      - intent: travel_to_berlin_work_investment_one_1
+      - intent: travel_to_tokyo_work_investment_one_1
+      - intent: travel_to_london_work_investment_one_1
+  - action: utter_question_66_work_in_general
+- rule: Strategies in investment decisions
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_investment_one_2
+      - intent: travel_to_london_work_investment_one_2
+      - intent: travel_to_dubai_work_investment_one_1
+      - intent: travel_to_tokyo_work_investment_one_2
+  - action: utter_question_67_work_in_general
+- rule: Evaluate his balance between discipline and flexibility.
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_investment_one_3
+      - intent: travel_to_london_work_investment_one_3
+      - intent: travel_to_dubai_work_investment_one_2
+      - intent: travel_to_tokyo_work_investment_one_3
+  - action: action_recommend_city
+
+- rule: Safe assets
+  steps:
+  - or:
+      - intent: travel_to_dubai_work_investment_two_1
+      - intent: travel_to_london_work_investment_two_1
+      - intent: travel_to_tokyo_work_investment_two_1
+      - intent: travel_to_newyork_work_investment_two_1
+  - action: utter_question_69_work_in_general
+- rule: Determine the optimal timing for increasing the share
+  steps:
+  - or:
+      - intent: travel_to_dubai_work_investment_two_2
+      - intent: travel_to_newyork_work_investment_two_2
+      - intent: travel_to_london_work_investment_two_2
+      - intent: travel_to_tokyo_work_investment_two_2
+  - action: utter_question_70_work_in_general
+- rule: It loses its real value over time
+  steps:
+  - or:
+      - intent: travel_to_dubai_work_investment_two_3
+      - intent: travel_to_london_work_investment_two_3
+      - intent: travel_to_berlin_work_investment_two_3
+      - intent: travel_to_tokyo_work_investment_two_3
+  - action: action_recommend_city
+
+- rule: Basis of investment decisions
+  steps:
+  - or:
+      - intent: travel_to_berlin_work_investment_three_1
+      - intent: travel_to_newyork_work_investment_three_1
+      - intent: travel_to_tokyo_work_investment_three_1
+      - intent: travel_to_london_work_investment_three_1
+  - action: utter_question_72_work_in_general
+- rule: Protects your capital from extreme fluctuations
+  steps:
+  - or:
+      - intent: travel_to_tokyo_work_investment_three_2
+      - intent: travel_to_newyork_work_investment_three_2
+      - intent: travel_to_dubai_work_investment_three_1
+      - intent: travel_to_berlin_work_investment_three_2
+  - action: utter_question_73_work_in_general
+- rule: The main indicator that makes him feel confident about entering a new trade
+  steps:
+  - or:
+      - intent: travel_to_london_work_investment_three_3
+      - intent: travel_to_berlin_work_investment_three_3
+      - intent: travel_to_newyork_work_investment_three_3
+      - intent: travel_to_tokyo_work_investment_three_3
+  - action: action_recommend_city
+
+- rule: The basic principle of asset allocation
+  steps:
+  - or:
+      - intent: travel_to_riyadh_work_investment_four_1
+      - intent: travel_to_dubai_work_investment_four_1
+      - intent: travel_to_london_work_investment_four_1
+      - intent: travel_to_newyork_work_investment_four_1
+  - action: utter_question_75_work_in_general
+- rule: Maintain a diversification strategy
+  steps:
+  - or:
+      - intent: travel_to_riyadh_work_investment_four_2
+      - intent: travel_to_newyork_work_investment_four_2
+      - intent: travel_to_dubai_work_investment_four_2
+      - intent: travel_to_tokyo_work_investment_four_1
+  - action: utter_question_76_work_in_general
+- rule: Balance between return and risk in his investments
+  steps:
+  - or:
+      - intent: travel_to_newyork_work_investment_four_3
+      - intent: travel_to_tokyo_work_investment_four_2
+      - intent: travel_to_dubai_work_investment_four_3
+      - intent: travel_to_riyadh_work_investment_four_3
+  - action: action_recommend_city
+  
+
+- rule: His field of study
+  steps:
+  - or:
+      - intent: travel_to_newyork_student_and_work_0
+      - intent: travel_to_doha_student_and_work_0
+      - intent: travel_to_dubai_student_and_work_0
+      - intent: travel_to_tokyo_student_and_work_0
+      - intent: travel_to_paris_student_and_work_0
+      - intent: travel_to_amsterdam_student_and_work_0
+      - intent: travel_to_berlin_student_and_work_0
+      - intent: travel_to_london_student_and_work_0
+      - intent: travel_to_istanbul_student_and_work_0
+      - intent: travel_to_makkah_student_and_work_0
+      - intent: travel_to_rome_student_and_work_0
+  - action: utter_question_78_work_in_general
+
+
+################################################
+
+- rule: The most important aspect of it in the future work environment
+  steps:
+  - or:
+      - intent: travel_to_newyork_student_and_work_1
+      - intent: travel_to_amsterdam_student_and_work_1
+      - intent: travel_to_riyadh_student_and_work_1
+      - intent: travel_to_paris_student_and_work_1
+  - action: utter_question_79_work_in_general
+
+- rule: It is preferable that the study and work environment be around him
+  steps:
+  - or:
+      - intent: travel_to_london_student_and_work_1
+      - intent: travel_to_istanbul_student_and_work_1
+      - intent: travel_to_paris_student_and_work_2
+      - intent: travel_to_newyork_student_and_work_2
+  - action: utter_question_80_work_in_general
+
+- rule: His main attraction in the country he aspires to work in
+  steps:
+  - or:
+      - intent: travel_to_london_student_and_work_2
+      - intent: travel_to_riyadh_student_and_work_2
+      - intent: travel_to_amsterdam_student_and_work_2
+      - intent: travel_to_istanbul_student_and_work_2
+  - action: utter_question_81_work_in_general
+
+- rule: The lifestyle he prefers while studying and working
+  steps:
+  - or:
+      - intent: travel_to_tokyo_student_and_work_1
+      - intent: travel_to_berlin_student_and_work_1
+      - intent: travel_to_amsterdam_student_and_work_3
+      - intent: travel_to_istanbul_student_and_work_3
+  - action: utter_question_82_work_in_general
+
+- rule: Professional networking opportunities
+  steps:
+  - or:
+      - intent: travel_to_dubai_student_and_work_1
+      - intent: travel_to_london_student_and_work_3
+      - intent: travel_to_tokyo_student_and_work_2
+      - intent: travel_to_berlin_student_and_work_2
+  - action: utter_question_83_work_in_general
+
+- rule: The level of financial support he is looking for
+  steps:
+  - or:
+      - intent: travel_to_riyadh_student_and_work_3
+      - intent: travel_to_berlin_student_and_work_3
+      - intent: travel_to_newyork_student_and_work_3
+      - intent: travel_to_istanbul_student_and_work_4
+  - action: utter_question_84_work_in_general
+
+- rule: The kind of challenges he enjoys facing
+  steps:
+  - or:
+      - intent: travel_to_dubai_student_and_work_2
+      - intent: travel_to_amsterdam_student_and_work_4
+      - intent: travel_to_riyadh_student_and_work_4
+      - intent: travel_to_tokyo_student_and_work_3
+  - action: utter_question_85_work_in_general
+
+- rule: The size of the company you prefer to work for
+  steps:
+  - or:
+      - intent: travel_to_berlin_student_and_work_4
+      - intent: travel_to_newyork_student_and_work_4
+      - intent: travel_to_paris_student_and_work_3
+      - intent: travel_to_istanbul_student_and_work_5
+  - action: utter_question_86_work_in_general
+
+- rule: What worries him most about working while studying?
+  steps:
+  - or:
+      - intent: travel_to_paris_student_and_work_4
+      - intent: travel_to_amsterdam_student_and_work_5
+      - intent: travel_to_tokyo_student_and_work_4
+      - intent: travel_to_dubai_student_and_work_3
+  - action: utter_question_87_work_in_general
+
+- rule: Imagine yourself 5 years from now
+  steps:
+  - or:
+      - intent: travel_to_tokyo_student_and_work_5
+      - intent: travel_to_london_student_and_work_4
+      - intent: travel_to_newyork_student_and_work_5
+      - intent: travel_to_amsterdam_student_and_work_6
+  - action: action_recommend_city
+
+# مسار داخل البلد 
+- rule: Which governorate are you from?
+  steps:
+  - or:
+      - intent: province_damascus
+      - intent: province_aleppo
+      - intent: province_homs
+      - intent: province_idlib
+      - intent: province_daraa
+      - intent: province_suwayda
+      - intent: province_deirezzor
+      - intent: province_hama
+  - action: utter_initial_question_arabic
+
+###############################################
+# قواعد المدن الساحلية
+###############################################
+- rule: الشواطئ والمناطق الساحلية 
+  steps:
+  - intent: coastal_cities
+  - action: utter_coastal_q1_arabic
+
+- rule: النشاط البحري المفضل
+  steps:
+  - or:
+      - intent: travel_to_latakia_arab_1
+      - intent: travel_to_tartous_2
+      - intent: other_utter_coastal_q2_arabic
+  - action: utter_coastal_q2_arabic
+
+- rule: نوع الإقامة الساحلية
+  steps:
+  - or:
+      - intent: travel_to_latakia_arab_3
+      - intent: travel_to_tartous_arab_4
+      - intent: other_utter_coastal_q3_arabic
+  - action: utter_coastal_q3_arabic
+
+- rule: المأكولات الساحلية
+  steps:
+  - or:
+      - intent: travel_to_latakia_arab_5
+      - intent: travel_to_tartous_7
+      - intent: other_utter_coastal_q4_arabic
+  - action: utter_coastal_q4_arabic
+
+- rule: وقت النزهة الساحلية
+  steps:
+  - or:
+      - intent: travel_to_latakia_arab_8
+      - intent: travel_to_tartous_9
+      - intent: other_utter_coastal_q5_arabic
+  - action: utter_coastal_q5_arabic
+
+- rule: مواصفات الشاطئ المثالي
+  steps:
+  - or:
+      - intent: travel_to_latakia_arab_12
+      - intent: travel_to_tartous_14
+      - intent: other_utter_coastal_q6_arabic
+  - action: utter_coastal_q6_arabic
+
+- rule: مستوى الهدوء المطلوب
+  steps:
+  - or:
+      - intent: travel_to_latakia_arab_17
+      - intent: travel_to_tartous_17
+      - intent: other_utter_coastal_q7_arabic
+  - action: utter_coastal_q7_arabic
+
+- rule: منظر الاستيقاظ المفضل
+  steps:
+  - or:
+      - intent: travel_to_latakia_arab_20
+      - intent: travel_to_tartous_arab_20
+      - intent: other_end_coastal
+  - action: action_recommend_city  # العودة للسؤال الرئيسي
+###############################################
+# Historical Cities Rules
+###############################################
+
+- rule: Historical and Ancient Cities
+  steps:
+  - intent: historical_cities
+  - action: utter_historical_q1_arabic
+
+- rule: Favorite Historical Era
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_1
+      - intent: travel_to_aleppo_arab_2
+      - intent: travel_to_idlib_arab_1
+      - intent: travel_to_deirezzor_arab_2
+      - intent: other_utter_historical_q2_arabic
+  - action: utter_historical_q2_arabic
+
+- rule: Types of Archaeological Landmarks
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_3
+      - intent: travel_to_aleppo_arab_5
+      - intent: travel_to_idlib_arab_5
+      - intent: travel_to_deirezzor_arab_3
+      - intent: other_utter_historical_q3_arabic
+  - action: utter_historical_q3_arabic
+
+- rule: Way to Explore the Historical City
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_7
+      - intent: travel_to_aleppo_arab_7
+      - intent: travel_to_idlib_arab_6
+      - intent: travel_to_deirezzor_arab_11
+      - intent: other_utter_historical_q4_arabic
+  - action: utter_historical_q4_arabic
+
+- rule: Reason for Visiting the Historical City
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_11
+      - intent: travel_to_aleppo_arab_9
+      - intent: travel_to_idlib_arab_17
+      - intent: travel_to_deirezzor_arab_13
+      - intent: other_utter_historical_q5_arabic
+  - action: utter_historical_q5_arabic
+
+- rule: Best Time for Historical Visit
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_12
+      - intent: travel_to_aleppo_arab_10
+      - intent: travel_to_idlib_arab_18
+      - intent: travel_to_deirezzor_arab_20
+      - intent: other_utter_historical_q6_arabic
+  - action: utter_historical_q6_arabic
+
+- rule: Level of Historical Details
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_13
+      - intent: travel_to_aleppo_arab_13
+      - intent: travel_to_idlib_arab_7
+      - intent: travel_to_deirezzor_arab_30
+      - intent: other_utter_historical_q7_arabic
+  - action: utter_historical_q7_arabic
+
+- rule: Type of Tour Guide
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_14
+      - intent: travel_to_aleppo_arab_14
+      - intent: travel_to_idlib_arab_25
+      - intent: travel_to_deirezzor_arab_33
+      - intent: other_end_historical
+  - action: action_recommend_city
+
+###############################################
+# Natural Cities Rules
+###############################################
+
+- rule: Scenic Natural Areas
+  steps:
+  - intent: nature_cities
+  - action: utter_nature_q1_arabic
+
+- rule: Favorite Natural View
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_2
+      - intent: travel_to_suwayda_arab_1
+      - intent: travel_to_daraa_arab_6
+      - intent: other_utter_nature_q2_arabic
+  - action: utter_nature_q2_arabic
+
+- rule: Favorite Natural Activity
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_4
+      - intent: travel_to_suwayda_arab_4
+      - intent: travel_to_daraa_arab_12
+      - intent: other_utter_nature_q3_arabic
+  - action: utter_nature_q3_arabic
+
+- rule: Favorite Climate
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_5
+      - intent: travel_to_suwayda_arab_6
+      - intent: travel_to_daraa_arab_15
+      - intent: other_utter_nature_q4_arabic
+  - action: utter_nature_q4_arabic
+
+- rule: Type of Natural Accommodation
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_8
+      - intent: travel_to_suwayda_arab_9
+      - intent: travel_to_daraa_arab_16
+      - intent: other_utter_nature_q5_arabic
+  - action: utter_nature_q5_arabic
+
+- rule: Best Season for Natural Visit
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_10
+      - intent: travel_to_suwayda_arab_14
+      - intent: travel_to_daraa_arab_17
+      - intent: other_utter_nature_q6_arabic
+  - action: utter_nature_q6_arabic
+
+- rule: Level of Natural Services
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_12
+      - intent: travel_to_suwayda_arab_15
+      - intent: travel_to_daraa_arab_18
+      - intent: other_utter_nature_q7_arabic
+  - action: utter_nature_q7_arabic
+
+- rule: Desired Type of Animals
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_16
+      - intent: travel_to_suwayda_arab_17
+      - intent: travel_to_daraa_arab_19
+      - intent: other_end_nature
+  - action: action_recommend_city
+
+###############################################
+# Commercial Cities Rules
+###############################################
+
+- rule: Commercial and Active Cities
+  steps:
+  - intent: commercial_cities
+  - action: utter_commercial_q1_arabic
+
+- rule: Type of Products Needed
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_6
+      - intent: travel_to_aleppo_arab_6
+      - intent: travel_to_homs_arab_1
+      - intent: other_utter_commercial_q2_arabic
+  - action: utter_commercial_q2_arabic
+
+- rule: Favorite Shopping Place
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_27
+      - intent: travel_to_aleppo_arab_28
+      - intent: travel_to_homs_arab_2
+      - intent: other_utter_commercial_q3_arabic
+  - action: utter_commercial_q3_arabic
+
+- rule: Favorite Product Price
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_8
+      - intent: travel_to_aleppo_arab_8
+      - intent: travel_to_homs_arab_3
+      - intent: other_utter_commercial_q4_arabic
+  - action: utter_commercial_q4_arabic
+
+- rule: Required Services
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_9
+      - intent: travel_to_aleppo_arab_15
+      - intent: travel_to_homs_arab_4
+      - intent: other_utter_commercial_q5_arabic
+  - action: utter_commercial_q5_arabic
+
+- rule: Favorite Shopping Time
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_10
+      - intent: travel_to_aleppo_arab_12
+      - intent: travel_to_homs_arab_5
+      - intent: other_utter_commercial_q6_arabic
+  - action: utter_commercial_q6_arabic
+
+- rule: Favorite Negotiation Style
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_15
+      - intent: travel_to_aleppo_arab_11
+      - intent: travel_to_homs_arab_11
+      - intent: other_utter_commercial_q7_arabic
+  - action: utter_commercial_q7_arabic
+
+- rule: What Makes the Experience Unique
+  steps:
+  - or:
+      - intent: travel_to_damascus_arab_16
+      - intent: travel_to_aleppo_arab_16
+      - intent: travel_to_homs_arab_13
+      - intent: other_end_commercial
+  - action: action_recommend_city
+
+###############################################
+# Unique Landmark Cities Rules
+###############################################
+
+- rule: Cities with Unique Landmarks
+  steps:
+  - intent: unique_cities
+  - action: utter_unique_q1_arabic
+
+- rule: Favorite Unique Landmark
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_6
+      - intent: travel_to_deirezzor_arab_1
+      - intent: travel_to_idlib_arab_21
+      - intent: other_utter_unique_q2_arabic
+  - action: utter_unique_q2_arabic
+
+- rule: What Makes the City Unique
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_9
+      - intent: travel_to_deirezzor_arab_4
+      - intent: travel_to_idlib_arab_26
+      - intent: other_utter_unique_q3_arabic
+  - action: utter_unique_q3_arabic
+
+- rule: Favorite Unique Activity
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_11
+      - intent: travel_to_deirezzor_arab_5
+      - intent: travel_to_idlib_arab_22
+      - intent: other_utter_unique_q4_arabic
+  - action: utter_unique_q4_arabic
+
+- rule: Type of Unique Accommodation
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_13
+      - intent: travel_to_deirezzor_arab_6
+      - intent: travel_to_idlib_arab_31
+      - intent: other_utter_unique_q5_arabic
+  - action: utter_unique_q5_arabic
+
+- rule: Best Time to Visit Unique Landmarks
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_15
+      - intent: travel_to_deirezzor_arab_7
+      - intent: travel_to_idlib_arab_23
+      - intent: other_utter_unique_q6_arabic
+  - action: utter_unique_q6_arabic
+
+- rule: Required Level of Privacy
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_17
+      - intent: travel_to_deirezzor_arab_8
+      - intent: travel_to_idlib_arab_32
+      - intent: other_utter_unique_q7_arabic
+  - action: utter_unique_q7_arabic
+
+- rule: Type of Unique Tour Guide
+  steps:
+  - or:
+      - intent: travel_to_hama_arab_19
+      - intent: travel_to_deirezzor_arab_9
+      - intent: travel_to_idlib_arab_24
+      - intent: other_end_unique
+  - action: action_recommend_city
+
+# مسار المقيمين في المدن الساحلية 
+- rule: Type of Unique Tour Guide tartous
+  steps:
+  - intent: province_tartous
+  - action: utter_initial_question_arabic_latakia_coby
+- rule: Type of Unique Tour Guide tartous coby
+  steps:
+  - intent: travel_to_latakia_coby
+  - action: action_recommend_city
+
+- rule: Type of Unique Tour Guide latakia
+  steps:
+  - intent: province_latakia
+  - action: utter_initial_question_arabic_tartous_coby
+- rule: Type of Unique Tour Guide latakia coby
+  steps:
+  - intent: travel_to_tartous_coby
+  - action: action_recommend_city
+
+# الازرار  
+- rule: Instant suggestion button
+  steps:
+  - intent: Instant_suggestion_button
+  - action: action_recommend_city
+- rule: reset conversation
+  steps:
+  - intent: reset_conversation
+  - action: action_reset_conversation
+- rule: show recommended cities
+  steps:
+  - intent: show_recommended_cities
+  - action: action_show_recommended_cities
+
+
