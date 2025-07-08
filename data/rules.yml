@@ -2,12 +2,32 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Start Travel Inquiry   
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - intent: start
+  - action: utter_question_1_tourism
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Start Travel tourism
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: travel_tourism
+  - action: utter_question_3_tourism
+
+- rule: Start Travel in
+  steps:
+  - intent: travel_in
+  - action: utter_ask_province
+
+- rule: Start Travel out
+  steps:
+  - intent: travel_out
+  - action: utter_question_0_base
+
+- rule: Start Travel to arab
+  steps:
+  - intent: travel_arab
+  - action: utter_initial_question_arabic_out
+    
+- rule: Start Travel to foreign
+  steps:
+  - intent: travel_foreign
+  - action: utter_initial_question_foreign_out

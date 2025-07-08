@@ -1,34 +1,45 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+- start
+- travel_tourism
+- travel_work
+- travel_study
+- travel_in
+- travel_out
+- travel_arab
+- travel_foreign
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+responses:
+  utter_question_1_tourism:
+  - text: ماسبب رغبتك في السفر؟
+    buttons:
+    - title: السياحة و الترفيه
+      payload: /travel_tourism
+    - title: الدراسة
+      payload: /travel_study
+    - title: العمل
+      payload: /travel_work
+  utter_question_3_tourism:
+  - text: هل تريد السفر بداخل ام خارج بلدك؟
+    buttons:
+    - title: خارجه
+      payload: /travel_out
+    - title: داخله
+      payload: /travel_in
+
+  utter_question_0_base:
+  - text: هل تريد السفر إلى بلد عربي أم أجنبي؟
+    buttons:
+    - title: عربي
+      payload: /travel_arab
+    - title: أجنبي
+      payload: /travel_foreign
+   
+actions:
+- utter_question_1_tourism
+- utter_question_3_tourism
+- utter_question_0_base

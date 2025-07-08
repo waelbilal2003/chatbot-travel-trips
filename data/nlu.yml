@@ -1,91 +1,57 @@
 version: "3.1"
-
-nlu:
-- intent: greet
+nlu:  
+- intent: start
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - ابدأ
+    - ابدء
+    - بلش
+    - بدي سافر
+    - اقترح رحلة
 
-- intent: goodbye
+- intent: travel_tourism
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - اريد السفر بغرض السياحة
+    - انوي السفر للتسلية
+    - بدي اسافر عشان اخذ اجازة 
+    - اقترح علي رحلة بغرض الترفيه
+    
+- intent: travel_study
+  examples: |
+    - أرغب بالسفر لغرض الدراسة والحصول على تعليم أفضل.
+    - أريد السفر إلى الخارج لاستكمال دراستي الجامعية.
+    - السفر من أجل الدراسة هو هدفي الأساسي لتحقيق طموحاتي.
+    - أخطط للسفر إلى بلد يوفر فرصًا تعليمية مميزة.
 
-- intent: affirm
+- intent: travel_work
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - أريد السفر إلى الخارج بغرض العمل 
+    - ابحث عن فرص وظيفية أفضل
+    - أرغب في السفر لتحسين دخلي المالي
+    - ابحث عن عمل ضمن مجال تخصصي
+- intent: travel_out
+  examples: |
+    - أريد السفر خارج البلاد
+    - اريد استكشاف ثقافات جديدة
+    - أرغب في السفر إلى الخارج
+    - انوي تحسين مستوى حياتي وتجربة عالم جديد 
 
-- intent: deny
+- intent: travel_in
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - أريد السفر داخل البلد فقط لأنني أحب بلدي وأفضل البقاء فيه.
+    - أرغب في السفر ضمن سوريا فقط لزيارة الأماكن السياحية فيها.
+    - السفر داخل البلد هو الخيار الأنسب لي بسبب ظروفي الشخصية.
+    - أخطط للسفر داخل سوريا لاستكشاف المناطق الطبيعية والثقافية.
 
-- intent: mood_great
+- intent: travel_arab
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - أريد السفر إلى بلد عربي لأنه يناسب ثقافتي ولغتي.
+    - أرغب في السفر إلى بلد عربي لاستكشاف التراث العربي المشترك.
+    - السفر إلى بلد عربي هو الخيار الأفضل بالنسبة لي.
+    - أخطط للسفر إلى بلد عربي للحصول على تجربة مريحة ومألوفة.
 
-- intent: mood_unhappy
+- intent: travel_foreign
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - أريد السفر إلى بلد أجنبي لتعلم لغة جديدة وتجربة ثقافة مختلفة.
+    - أرغب في السفر إلى بلد أجنبي للحصول على فرصة تعليمية أو وظيفية.
+    - السفر إلى بلد أجنبي هو طموحي لتحقيق أهدافي المستقبلية.
+    - أخطط للسفر إلى بلد أجنبي لاكتساب خبرة دولية واسعة.
