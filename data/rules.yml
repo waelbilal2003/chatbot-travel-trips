@@ -12,22 +12,7 @@ rules:
   - intent: travel_tourism
   - action: utter_question_3_tourism
 
-- rule: Start Travel in
-  steps:
-  - intent: travel_in
-  - action: utter_ask_province
-
 - rule: Start Travel out
   steps:
   - intent: travel_out
   - action: utter_question_0_base
-
-- rule: Start Travel to arab
-  steps:
-  - intent: travel_arab
-  - action: utter_initial_question_arabic_out
-    
-- rule: Start Travel to foreign
-  steps:
-  - intent: travel_foreign
-  - action: utter_initial_question_foreign_out
