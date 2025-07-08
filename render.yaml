@@ -2,9 +2,13 @@ services:
   - type: web
     name: rasa-bot
     env: python
+    plan: free
     buildCommand: |
-      pip install -r requirements.txt
-    startCommand: bash start.sh
+      pip install --no-cache-dir -r requirements.txt
+      chmod +x start.sh
+    startCommand: ./start.sh
     envVars:
       - key: PORT
-        value: 10000
+        value: 10000  # Render يعمل بشكل أفضل مع هذا المنفذ
+      - key: PYTHONUNBUFFERED
+        value: 1
