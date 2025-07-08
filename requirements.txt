@@ -1,9 +1,7 @@
 pip>=25.0.1
-setuptools<60.0
-wheel
+setuptools>=75.3.2
+wheel>=0.45.1
 rasa==3.6.21
 tensorflow-cpu==2.6.0
 sqlalchemy==1.4.46
-numpy==1.22.3  # إصدار متوافق مع Python 3.8
-mysqlclient==2.1.1
-mysql-connector-python
+numpy==1.22.3
