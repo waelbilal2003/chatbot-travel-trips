@@ -1,16 +1,11 @@
-action_endpoint:
-  url: "https://chatbot-travel-tripschmod-a-x-start-sh.onrender.com/webhook"  # الرابط الجديد
-
 tracker_store:
-  type: SQL  # تغيير من sql إلى SQL (حساس لحالة الأحرف)
-  dialect: postgresql  # تغيير من mysql إلى postgresql
-  url: "postgresql://postgres:${DB_PASSWORD}@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres?sslmode=require"  # رابط Supabase
-  db: "postgres"  # اسم DB في Supabase (أو اسم DB المخصص لك)
-
-lock_store:  # إضافة جديدة مطلوبة لـ Rasa
-  type: SQL
+  type: postgresql
   dialect: postgresql
-  url: "postgresql://postgres:${DB_PASSWORD}@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres?sslmode=require"
+  url: "postgresql://postgres:[كلمة-المرور]@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres?sslmode=require"
+  # لاحظ استخدام 'postgres' كاسم داتابيز ↓
+  db: "postgres"  # اسم الداتابيز (الافتراضي دائمًا postgres في Supabase)
 
-cors:
-  - "*"
+lock_store:
+  type: postgresql
+  dialect: postgresql
+  url: "postgresql://postgres:[كلمة-المرور]@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres?sslmode=require"
