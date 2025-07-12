@@ -1,19 +1,16 @@
 language: ar
 
 pipeline:
-  - name: WhitespaceTokenizer  # مطلوب فقط للفورمات، غير مكلف
-  - name: RegexFeaturizer      # لتحديد الأنماط البسيطة (مثل الأزرار)
-  - name: ResponseSelector     # في حال وجود ردود عبر responses.yml
-    epochs: 30                 # خفف من 100 إلى 30
-  - name: FallbackClassifier   # للتعامل مع الحالات غير المعروفة
-    threshold: 0.3
-    ambiguity_threshold: 0.1
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: ResponseSelector
+    epochs: 30
 
 policies:
-  - name: RulePolicy           # الأفضل لأزرار و Slots
+  - name: RulePolicy
     core_fallback_threshold: 0.3
     core_fallback_action_name: "action_default_fallback"
-    enable_fallback_prediction: True
-    restrict_rules: True
-  - name: MemoizationPolicy    # مفيد للحوارات الثابتة
-    max_history: 3             # حافظ على 3 فقط كما قلت
+    enable_fallback_prediction: true
+    restrict_rules: true
+  - name: MemoizationPolicy
+    max_history: 3
