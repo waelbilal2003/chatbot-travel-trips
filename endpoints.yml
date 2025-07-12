@@ -1,8 +1,11 @@
 action_endpoint:
-  url: "https://rasa-travel-bot.onrender.com/webhook" 
+  url: "http://0.0.0.0:$ACTION_PORT/webhook"  # ✔️ الاتصال الداخلي بين الخوادم
 
 lock_store:
-  type: in_memory
-  
+  type: in_memory  # ✔️ التخزين في الذاكرة
+
+tracker_store:
+  type: in_memory  # ✔️ لا حاجة لقاعدة بيانات
+
 cors:
-  - "*"
+  - "*"  # ✔️ السماح بجميع المصادر (للتطوير)
