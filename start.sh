@@ -1,8 +1,9 @@
 #!/bin/bash
-PORT=${PORT:-8080}
 
-# تأخير لضمان جاهزية الشبكة (للمشاكل المتكررة)
-sleep 10
+# تشغيل خادم Rasa في الخلفية
+rasa run --enable-api --cors "*" --port $PORT &
 
-echo "🚀 Starting Rasa on port $PORT"
-rasa run --enable-api --cors "*" --port $PORT --debug
+# تشغيل خادم Actions
+rasa run actions --port $ACTION_PORT
+
+# يمكنك إضافة تحقق من الأخطاء هنا إذا لزم الأمر
