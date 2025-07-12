@@ -1,6 +1,6 @@
 action_endpoint:
-  url: "https://rasa-travel-bot.onrender.com/webhook" 
-  
+  url: "https://actions-rasa-travel-bot.onrender.com/webhook" 
+
 lock_store:
   type: in_memory
   
