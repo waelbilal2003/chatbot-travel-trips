@@ -1,13 +1,6 @@
 action_endpoint:
   url: "https://chatbot-travel-tripschmod-a-x-start-sh.onrender.com/webhook"  # الرابط الجديد
 
-tracker_store:
-  type: postgres
-  dialect: postgresql
-  url: "postgresql://postgres:Waelwael1515@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres"
-  login_db: "postgres"
-  sslmode: "require"
-
 lock_store:
   type: in_memory
   

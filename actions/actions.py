@@ -2,13 +2,9 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet, UserUtteranceReverted, ActionExecuted, FollowupAction
 from rasa_sdk.executor import CollectingDispatcher
 from typing import Any, Dict, List, Text
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 
 # خريطة الردود بناءً على النية + اللغة + مستوى اللغة
 RESPONSE_MAP = {
-    
     ("travel_work", "english", "language_excellent"): "utter_question_3_work_in_general",
     ("travel_work", "english", "language_good"): "utter_question_3_work_in_general",
     ("travel_work", "english", "language_itsokay"): "utter_question_3_work_in_general",
@@ -50,19 +46,6 @@ RESPONSE_MAP = {
     ("travel_study", "other", "language_itsokay"): "utter_question_study_work_3",
     ("travel_study", "other", "language_bad"): "utter_question_study_work_3"
 }
-
-# تعريف نموذج قاعدة البيانات
-Base = declarative_base()
-
-class City(Base):
-    __tablename__ = 'cities'
-    id = Column(Integer, primary_key=True)
-    city_name = Column(String(255))
-
-# إعداد اتصال قاعدة البيانات
-DATABASE_URI = 'postgresql+psycopg2://postgres:${DB_PASSWORD}@db.yhwqonkzygwxibntescs.supabase.co:5432/postgres'
-engine = create_engine(DATABASE_URI)
-Session = sessionmaker(bind=engine)
 
 # التحقق من النوايا السابقة وتعيين الفتحات تلقائيًا وإرسال الرد المناسب
 class ActionCheckPreviousIntents(Action):
@@ -160,26 +143,18 @@ class ActionRecommendCity(Action):
 
         sorted_cities = sorted(city_counts.items(), key=lambda x: x[1], reverse=True)
 
-        session = Session()
-        try:
-            for city, count in sorted_cities:
-                exists = session.query(City).filter_by(city_name=city.capitalize()).first()
-                if exists:
-                    utter_name = f"utter_{city}"
-                    if "responses" in domain and utter_name in domain["responses"]:
-                        dispatcher.utter_message(response=utter_name)
-                        
-                        # تحديث سجل الاقتراحات
-                        history = tracker.get_slot("recommended_cities_history") or []
-                        if city not in history:
-                            history.append(city)
-                            if len(history) > 3:
-                                history = history[-3:]
-                        return [SlotSet("recommended_city", city), SlotSet("recommended_cities_history", history)]
-        except Exception as e:
-            dispatcher.utter_message(text=f"⚠️ An error occurred while checking cities: {e}")
-        finally:
-            session.close()
+        for city, count in sorted_cities:
+            utter_name = f"utter_{city}"
+            if "responses" in domain and utter_name in domain["responses"]:
+                dispatcher.utter_message(response=utter_name)
+                
+                # تحديث سجل الاقتراحات
+                history = tracker.get_slot("recommended_cities_history") or []
+                if city not in history:
+                    history.append(city)
+                    if len(history) > 3:
+                        history = history[-3:]
+                return [SlotSet("recommended_city", city), SlotSet("recommended_cities_history", history)]
 
         dispatcher.utter_message(text="عذراً لا تتوفر رحلة تتناسب مع تفضيلاتك حالياً 😔 حاول مرة أخرى في وقت لاحق 🔁")
         return []

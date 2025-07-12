@@ -1,35 +1,19 @@
 language: ar
 
-assistant_id: 20250321-145555-merry-rent
-
 pipeline:
-  - name: WhitespaceTokenizer
-  - name: RegexFeaturizer
-  - name: LexicalSyntacticFeaturizer
-  - name: CountVectorsFeaturizer
-  - name: CountVectorsFeaturizer
-    analyzer: char_wb
-    min_ngram: 1
-    max_ngram: 4
-  - name: DIETClassifier
-    epochs: 100
-  - name: EntitySynonymMapper
-  - name: ResponseSelector
-    epochs: 100
-  - name: FallbackClassifier
+  - name: WhitespaceTokenizer  # مطلوب فقط للفورمات، غير مكلف
+  - name: RegexFeaturizer      # لتحديد الأنماط البسيطة (مثل الأزرار)
+  - name: ResponseSelector     # في حال وجود ردود عبر responses.yml
+    epochs: 30                 # خفف من 100 إلى 30
+  - name: FallbackClassifier   # للتعامل مع الحالات غير المعروفة
     threshold: 0.3
     ambiguity_threshold: 0.1
 
 policies:
-  - name: RulePolicy
+  - name: RulePolicy           # الأفضل لأزرار و Slots
     core_fallback_threshold: 0.3
     core_fallback_action_name: "action_default_fallback"
     enable_fallback_prediction: True
-    restrict_rules: True  # تغيير إلى True لتجنب التضارب
-  - name: TEDPolicy
-    max_history: 5  # زيادة التاريخ للتعامل مع التدفق المعقد
-    epochs: 100
-    max_training_samples_per_entity_limit: 0  # تشبه إعدادات RulePolicy
-    evaluate_on_number_of_examples: 0  # تشبه إعدادات RulePolicy
-  - name: MemoizationPolicy
-    max_history: 3  # تقييد التذكر إلى 3 خطوات فقط
+    restrict_rules: True
+  - name: MemoizationPolicy    # مفيد للحوارات الثابتة
+    max_history: 3             # حافظ على 3 فقط كما قلت
